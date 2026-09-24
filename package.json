@@ -1,13 +1,14 @@
 {
   "name": "puppet-troupe-tour",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "concurrently \"npm:dev:api\" \"npm:dev:web\"",
     "dev:api": "tsx api/server.ts",
     "dev:web": "vite --config web/vite.config.ts",
     "build": "tsc -p api/tsconfig.json && vite build --config web/vite.config.ts",
     "start": "node api/dist/server.js",
-    "test": "tsx api/rules.test.ts"
+    "test": "tsx api/rules.test.ts && tsx api/scoring.test.ts && tsx api/server.test.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",
